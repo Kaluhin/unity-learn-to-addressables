@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+Swords and Shovels Progamming Combat/[Ll]ibrary/
+Swords and Shovels Progamming Combat/[Tt]emp/
+Swords and Shovels Progamming Combat/[Oo]bj/
+Swords and Shovels Progamming Combat/[Bb]uild/
+Swords and Shovels Progamming Combat/[Bb]uilds/
+Swords and Shovels Progamming Combat/[Ll]ogs/
+Swords and Shovels Progamming Combat/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -57,4 +57,7 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# Rider
+.idea/
 
