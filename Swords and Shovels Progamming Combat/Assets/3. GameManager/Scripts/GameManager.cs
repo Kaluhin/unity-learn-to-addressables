@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
@@ -117,19 +119,12 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void LoadLevel(string levelName)
+    public async Task LoadLevel(string levelName)
     {
-        AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
-        if (ao == null)
-        {
-            Debug.LogError("[GameManager] Unable to load level " + levelName);
-            return;
-        }
-
-        ao.completed += OnLoadOperationComplete;
-        _loadOperations.Add(ao);
-
+        var handle = Addressables.LoadSceneAsync(levelName, LoadSceneMode.Additive);
+        await handle.Task;
         _currentLevelName = levelName;
+        UpdateState(GameState.RUNNING);
     }
 
     public void UnloadLevel(string levelName)
