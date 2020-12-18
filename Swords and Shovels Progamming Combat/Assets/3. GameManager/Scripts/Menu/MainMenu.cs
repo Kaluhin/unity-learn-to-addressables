@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     {
         GameManager.Instance.OnGameStateChanged.AddListener(HandleGameStateChanged);
     }
-
+    
     public void OnFadeOutComplete()
     {
         OnFadeComplete.Invoke(true);
@@ -31,6 +31,11 @@ public class MainMenu : MonoBehaviour
             return;
         }
 
+        if (previousState == GameManager.GameState.PREGAME && currentState == GameManager.GameState.LOADING)
+        {
+           gameObject.SetActive(false);
+        }
+        
         if (previousState == GameManager.GameState.PREGAME && currentState != GameManager.GameState.PREGAME)
         {
             UIManager.Instance.SetDummyCameraActive(false);

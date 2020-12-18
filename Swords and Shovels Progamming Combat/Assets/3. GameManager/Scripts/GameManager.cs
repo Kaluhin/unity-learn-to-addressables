@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     public enum GameState
     {
         PREGAME,
+        LOADING,
         RUNNING,
         PAUSED
     }
@@ -119,10 +121,17 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public async Task LoadLevel(string levelName)
+    public async Task LoadLevel(string levelName, Action<float> progress)
     {
+        UpdateState(GameState.LOADING);
         var handle = Addressables.LoadSceneAsync(levelName, LoadSceneMode.Additive);
-        await handle.Task;
+
+        while (!handle.IsDone)
+        {
+            await Task.Yield();
+            progress?.Invoke(handle.PercentComplete);
+        }
+        
         _currentLevelName = levelName;
         UpdateState(GameState.RUNNING);
     }
@@ -141,11 +150,6 @@ public class GameManager : Singleton<GameManager>
     public void RestartGame()
     {
         UpdateState(GameState.PREGAME);
-    }
-
-    public void StartGame()
-    {
-        LoadLevel("Main");
     }
 
     public void QuitGame()

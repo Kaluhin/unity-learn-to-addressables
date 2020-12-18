@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: NPC
+  m_EditorClassIdentifier: 
+  m_GroupName: NPC
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 894d1fdead967474884741b1789113c2
+  m_SerializeEntries:
+  - m_GUID: 60e20686ea27a12419b7b1b9ff1cb6ac
+    m_Address: Assets/1. Character & NPC Controller/NPC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 14ee0b3363294aa4cb52c9dbbf0e975d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 517102f218fb4c747abb3d633ef0d566, type: 2}
+    - {fileID: 11400000, guid: fa0b18df3aca0ac4ea07b50c1af08cc9, type: 2}
